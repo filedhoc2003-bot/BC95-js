@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sision3 (DOM , ES6((let,const)))</title>
+    <!-- link sử dụng tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-gray-100 p-6">
+    <div class="mx-auto max-w-3xl bg-white rounded-lg p-6">
+      <h1 class="text-center text-green-500 text-2xl mb-4">DOM exercise</h1>
+      <!-- Bài 1: getElementById + innerText -->
+      <div class="bg-blue-200 rounded-lg">
+        <h2 class="font-bold text-indigo-500 mb-2">
+          getElementById + innerText
+        </h2>
+        <p id="text-result" class="bg-gray-300 p-3 rounded mb-2">
+          Đây Là Nơi Chưa Text
+        </p>
+        <button
+          id="btn-result"
+          class="bg-orange-400 text-white px-3 py-2 rounded-md"
+        >
+          Click
+        </button>
+        <input type="text" />
+      </div>
+      <!-- Bài 2: Giả lập flow login -->
+      <div class="bg-blue-200 rounded-lg p-6">
+        <div>
+          <label class="block text-sm font-semibold mb-1">Username</label>
+          <input
+            type="text"
+            id="userName"
+            class="w-full border-2 border-black rounded p-3"
+            placeholder="nhập tên đăng nhập"
+          />
+          <!-- hiển thị lỗi nếu có -->
+          <p class="hidden bg-red-500 text-white p-3 rounded-lg mt-1"></p>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1 mt-2">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Nhập mật khẩu"
+            class="w-full border-2 border-black rounded p-3"
+          />
+          <!-- hiển thị lỗi nếu có -->
+          <p id="result" class="bg-red-500 text-white p-3 rounded-lg mt-1"></p>
+        </div>
+        <div>
+          <button
+            id="btn"
+            class="px-3 py-2 border border-gray-400 mt-3 rounded hover:text-red-500 font-semibold bg-gray-400"
+          >
+            Đăng Nhập
+          </button>
+        </div>
+      </div>
+      <!-- Bài 3: tính diện tích và chu vi hình chữ nhật -->
+      <div class="bg-blue-200 rounded-lg p-6">
+        <div>
+          <label class="block text-sm font-semibold mb-1">Chiều Dài</label>
+          <input
+            type="number"
+            id="chieuDai"
+            class="w-full border-2 border-black rounded p-3"
+            placeholder=" Nhập chiều Dài"
+          />
+          <!-- hiển thị lỗi nếu có -->
+          <p class="hidden bg-red-500 text-white p-3 rounded-lg mt-1"></p>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1 mt-2"
+            >chiều rộng</label
+          >
+          <input
+            type="number"
+            id="chieuRong"
+            placeholder="Nhập chiều rộng"
+            class="w-full border-2 border-black rounded p-3"
+          />
+          <!-- hiển thị lỗi nếu có -->
+          <p id="result1" class="bg-red-500 text-white p-3 rounded-lg mt-1"></p>
+        </div>
+        <div>
+          <button
+            id="btn-ketqua"
+            class="px-3 py-2 border border-gray-400 mt-3 rounded hover:text-red-500 font-semibold bg-gray-400"
+          >
+            Kết Quả
+          </button>
+        </div>
+      </div>
+      <!-- Bài 4: tính Tổng 2 ký số -->
+      <div class="bg-blue-200 rounded-lg p-6">
+        <div>
+          <label class="block text-sm font-semibold mb-1">Ký số</label>
+          <input
+            type="number"
+            id="kySo"
+            class="w-full border-2 border-black rounded p-3"
+            placeholder=" Nhập ký số"
+          />
+          <!-- hiển thị lỗi nếu có -->
+          <p id="result2" class="bg-red-500 text-white p-3 rounded-lg mt-1"></p>
+        </div>
+        <div>
+          <button
+            id="btn-ketqua1"
+            class="px-3 py-2 border border-gray-400 mt-3 rounded hover:text-red-500 font-semibold bg-gray-400"
+          >
+            Kết Quả
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- script -->
+    <script src="../java/index.js"></script>
+    <script src="../java/bai2.js"></script>
+    <script src="../java/ifElse.js"></script>
+  </body>
+</html>
