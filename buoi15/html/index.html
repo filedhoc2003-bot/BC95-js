@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- link sử dụng tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <main>
+      <h1 class="text-3xl font-bold text-center mb-5">Tính điểm tuyển sinh</h1>
+      <!--  Bài 1: tính điểm trung bình -->
+      <section class="bg-gray-100 rounded-lg shadow-lg p-6">
+        <form id="formXetTuyen" class="space-y-4">
+          <div>
+            <label class="block font-medium mb-1">Điểm Chuẩn</label>
+            <input
+              type="number"
+              id="diemChuan"
+              name="diemChuan"
+              class="w-full border rounded-sm px-3 py-2"
+              step="0.1"
+              placeholder="Mời Nhập Điểm Chuẩn"
+              required
+            />
+            <p id="erroDiemChuan" class="hidden text-red-400"></p>
+          </div>
+          <!-- điểm các môn -->
+          <div class="grid grid-cols-3 gap-5">
+            <div>
+              <label class="block font-medium mb-1">Điểm Toán</label>
+              <input
+                type="number"
+                id="diemToan"
+                name="diemToan"
+                class="w-full border rounded-sm px-3 py-2"
+                step="0.1"
+                placeholder="Mời Nhập Điểm Toán"
+                required
+              />
+              <p id="erroDiemToan" class="hidden text-red-400"></p>
+            </div>
+            <div>
+              <label class="block font-medium mb-1">Điểm Lý</label>
+              <input
+                type="number"
+                id="diemLy"
+                name="diemLy"
+                class="w-full border rounded-sm px-3 py-2"
+                step="0.1"
+                placeholder="Mời Nhập Điểm Lý"
+                required
+              />
+              <p id="erroDiemLy" class="hidden text-red-400"></p>
+            </div>
+            <div>
+              <label class="block font-medium mb-1">Điểm Hóa</label>
+              <input
+                type="number"
+                id="diemHoa"
+                name="diemHoa"
+                class="w-full border rounded-sm px-3 py-2"
+                step="0.1"
+                placeholder="Mời Nhập Điểm Hóa"
+                required
+              />
+              <p id="erroDiemHoa" class="hidden text-red-400"></p>
+            </div>
+          </div>
+          <!-- khu vực-đối tượng -->
+          <div class="grid grid-cols-2 gap-5">
+            <!-- Khu vực -->
+            <div>
+              <label class="block font-medium mb-1">Khu Vực</label>
+              <select
+                name="khuVuc"
+                id="khuVuc"
+                class="w-full border rounded-sm px-3 py-2"
+                required
+              >
+                <option value="">Mời chọn khu vực</option>
+                <option value="1">Khu vực 1</option>
+                <option value="2">Khu vực 2</option>
+                <option value="3">Khu vực 3</option>
+              </select>
+            </div>
+            <!-- Đối tượng -->
+            <div>
+              <label class="block font-medium mb-1">Đối Tượng</label>
+              <select
+                name="doiTuong"
+                id="doiTuong"
+                class="w-full border rounded-sm px-3 py-2"
+                required
+              >
+                <option value="">Mời chọn đối tượng</option>
+                <option value="A">Đối tượng A</option>
+                <option value="B">Đối tượng B</option>
+                <option value="C">Đối tượng C</option>
+              </select>
+            </div>
+          </div>
+          <button
+            id="btnDtb"
+            type="submit"
+            class="bg-green-400 rounded-md px-3 py-2"
+          >
+            Tính điểm trung bình
+          </button>
+        </form>
+      </section>
+    </main>
+    <!-- script -->
+    <script src="../java/index.js"></script>
+  </body>
+</html>
