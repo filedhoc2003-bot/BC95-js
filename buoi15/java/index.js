@@ -9,6 +9,10 @@ const el = {
   khuVuc: document.getElementById("khuVuc"),
   doiTuong: document.getElementById("doiTuong"),
   btnDtb: document.getElementById("btnDtb"),
+  erroToan: document.getElementById("erroDiemToan"),
+  erroLy: document.getElementById("erroDiemLy"),
+  erroHoa: document.getElementById("erroDiemHoa"),
+  erroDiemChuan: document.getElementById("erroDiemChuan"),
 };
 
 // tạo object lưu điểm ưu tiên khu vực và đối tượng
@@ -21,6 +25,54 @@ const DIEM_UU_TIEN_DOI_TUONG = {
   A: 2.5,
   B: 1.5,
   C: 1,
+};
+
+// hàm ẩn lỗi
+const hideError = (errElement) => {
+  errElement.innerText = "";
+  errElement.classList.add("hidden");
+};
+
+// hàm hiện lỗi
+const showError = (errElement, message) => {
+  errElement.innerText = message;
+  errElement.classList.remove("hidden");
+};
+
+// viết hàm valition riêng cho code cho sạch hơn
+const valitionInput = (diemChuan, diemToan, diemLy, diemHoa) => {
+  // default is true
+  let isValion = true;
+  // delete all errol nếu có
+  hideError(el.erroDiemChuan);
+  hideError(el.erroToan);
+  hideError(el.erroLy);
+  hideError(el.erroHoa);
+
+  // kiểm tra lỗi
+  if (diemChuan < 0 || diemChuan > 30 || isNaN(diemChuan)) {
+    showError(el.erroDiemChuan, "diểm chuẩn từ 0-30 điểm ");
+    isValion = false;
+  }
+
+  // kiểm tra điểm từng môn
+  // Toán
+  if (diemToan < 0 || diemToan > 10 || isNaN(diemToan)) {
+    showError(el.erroToan, "diểm chuẩn từ 0-10 điểm ");
+    isValion = false;
+  }
+  // Lý
+  if (diemLy < 0 || diemLy > 10 || isNaN(diemLy)) {
+    showError(el.erroLy, "diểm chuẩn từ 0-10 điểm ");
+    isValion = false;
+  }
+  //Hóa
+  if (diemHoa < 0 || diemHoa > 10 || isNaN(diemHoa)) {
+    showError(el.erroHoa, "diểm chuẩn từ 0-10 điểm ");
+    isValion = false;
+  }
+
+  return isValion;
 };
 
 // Bước 2: tạo hàm xử lý sự kiện click button
@@ -44,31 +96,36 @@ el.form.addEventListener("submit", (event) => {
   console.log(diemToan, diemLy, diemHoa);
   console.log(diemUuTienKhuVuc, diemUuTienDoiTuong);
 
+  // valion dữ liệu người dùng nhập
+  const isValion = valitionInput(diemChuan, diemToan, diemLy, diemHoa);
+  if (!isValion) {
+    return;
+  }
   // validate dữ liệu người dùng nhập vào
   // Lưu Ý : code chạy được trước => clean code sau
-  if (isNaN(diemChuan) || isNaN(diemToan) || isNaN(diemLy) || isNaN(diemHoa)) {
-    alert(`Vui lòng bạn nhập lại`);
-    return;
-  }
-  // range điểm chuẩn và điểm từng môn phải từ 0-10
-  if (diemChuan < 0 || diemChuan > 30) {
-    alert(`điểm chuẩn phải từ 0 đến 30`);
-    return;
-  }
+  // if (isNaN(diemChuan) || isNaN(diemToan) || isNaN(diemLy) || isNaN(diemHoa)) {
+  //   alert(`Vui lòng bạn nhập lại`);
+  //   return;
+  // }
+  // // range điểm chuẩn và điểm từng môn phải từ 0-10
+  // if (diemChuan < 0 || diemChuan > 30) {
+  //   alert(`điểm chuẩn phải từ 0 đến 30`);
+  //   return;
+  // }
 
-  // điểm các môn phải từ 0 đến 10
-  if (diemToan < 0 || diemToan > 10) {
-    alert(`điểm chuẩn phải từ 0 đến 10`);
-    return;
-  }
-  if (diemLy < 0 || diemLy > 10) {
-    alert(`điểm chuẩn phải từ 0 đến 10`);
-    return;
-  }
-  if (diemHoa < 0 || diemHoa > 10) {
-    alert(`điểm chuẩn phải từ 0 đến 10`);
-    return;
-  }
+  // // điểm các môn phải từ 0 đến 10
+  // if (diemToan < 0 || diemToan > 10) {
+  //   alert(`điểm chuẩn phải từ 0 đến 10`);
+  //   return;
+  // }
+  // if (diemLy < 0 || diemLy > 10) {
+  //   alert(`điểm chuẩn phải từ 0 đến 10`);
+  //   return;
+  // }
+  // if (diemHoa < 0 || diemHoa > 10) {
+  //   alert(`điểm chuẩn phải từ 0 đến 10`);
+  //   return;
+  // }
 
   // Bước 5: tính tổng điểm
   const tongDiem =
